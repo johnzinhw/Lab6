@@ -1,0 +1,61 @@
+<h1> Professor por disciplina</h1>
+
+<form>
+  <div>
+    <label for ="course">Curso:</label>
+    <input type="text" id="course" name="course" [(ngModel)]="newTeacher.course"
+    required #course="ngModel">
+  </div>
+
+  <div>
+    <label for ="subject">Disciplina:</label>
+    <input type="text" id="subject" name="subject" [(ngModel)]="newTeacher.subject"
+    required #subject="ngModel">
+  </div>
+
+  <div>
+    <label for ="teacherName">Professor:</label>
+    <input type="text" id="teacherName" name="teacherName" [(ngModel)]="newTeacher.name"
+    required #teacherName="ngModel">
+  </div>
+
+  <div>
+    <label for ="year">Ano:</label>
+    <input type="number" id="year" name="year" [(ngModel)]="newTeacher.year"
+    required #year="ngModel">
+  </div>
+
+  <div>
+    <label for ="semester">Semestre:</label>
+    <input type="number" id="semester" name="semester" [(ngModel)]="newTeacher.semester"
+    required #semestre="ngModel">
+  </div>
+
+  <input type="button" value="Salvar" (click)="saveTeacher()">
+
+</form>
+
+<table>
+  <thead>
+  <tr>
+    <th>Curso </th>
+    <th>Disciplina</th>
+    <th>Professor</th>
+    <th>Ano</th>
+    <th>Semestre</th>
+    <th>Editar</th>
+    <th>Excluir</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let tcr of teachers">
+    <td>{{tcr.course}}</td>
+    <td>{{tcr.subject}}</td>
+    <td>{{tcr.name}}</td>
+    <td>{{tcr.year}}</td>
+    <td>{{tcr.semester}}</td>
+    <td><input type="button" value="Editar" (click)="edit(tcr)"></td>
+    <td><input type="button" value="Remover" (click)="delete(tcr)"></td>
+  </tr>
+</tbody>
+</table>

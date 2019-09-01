@@ -1,0 +1,30 @@
+Todo projeto, tenho que executar o comando
+ng serve -o
+npm install
+
+Assim ele vai executar e abrir a web com project
+
+ngModel: o cara que representa no lado do typescript
+o valor que tem o input ...
+
+
+
+objeto uma grupo de variavel
+
+lista de objeto lista dentrro da msm lista
+
+FORM
+Toda vez que for usado form , tem que usar name ...
+
+#name exportar para o ngmodel
+
+invalid é quando ta incorreto e dirty e quando ele ja foi tocado e feito novamente
+
+
+
+criar um novo projeto
+ng new "NOMEXXXX"
+depois da cd na pasta
+cd ProvaUm
+e depois code .
+assim ele vai abrir o vs

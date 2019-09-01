@@ -1,0 +1,126 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<!--
+<ul>
+  <li>{{name}} - {{age}}</li>
+
+  <li>{{student.name}}</li>
+  <li>{{student.email}}</li>
+</ul>
+
+<div>
+  <label for ="cpf">CPF:</label>
+  <input type="number" id="cpf" [(ngModel)]="cpf">
+
+  <button (click)="saveAction()">Click Here</button>
+</div>
+
+<h1></h1>
+<div>
+  <label for ="number1">A</label>
+  <input type="number" [(ngModel)]="valueA">
+</div>
+<div>
+  <label for ="number2">B</label>
+  <input type="number" [(ngModel)]="valueB">
+</div>
+
+<div *ngIf="valueC">
+  <label for ="result">Resultado:</label>
+  <input type="number" [(ngModel)]="valueC">
+</div>
+
+<button (click)="sum()">Somar</button>
+
+<div>
+  <p>{{fakeStudent.name}}</p>
+  <p>{{fakeStudent.email}}</p>
+  <p>{{fakeStudent.cpf}}</p>
+</div>  
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>CPF</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let std of students">  
+    <td>{{std.name}}</td>
+    <td>{{std.email}}</td>
+    <td>{{std.cpf}}</td>
+  </tr>
+</tbody>
+</table>
+-->
+
+<h1>Cadastro de Alunos</h1>
+<form #studentForm="ngForm">
+<div>
+    <label for ="name">Nome </label>
+    <input type="text" id="name" name="name"
+     required [(ngModel)]="nameA" #name="ngModel">
+    <span *ngIf="name.invalid && name.dirty" class="error">
+      Campo Obrigatório!
+    </span>
+</div>
+
+<div>
+    <label for ="email">Email </label>
+    <input type="text" id="email" name="emailC" 
+     required [(ngModel)]="email" #emailC="ngModel">
+     <span *ngIf="emailC.invalid && emailC.dirty" class="error">
+        Campo Obrigatório!
+    </span>
+</div>
+
+<div>
+    <label for ="cpf">CPF </label>
+    <input type="number" id="cpf" name="cpf"
+     required [(ngModel)]="cpfA" #cpf="ngModel">
+    <span *ngIf="cpf.invalid && cpf.dirty" class="error">
+        Campo Obrigatório!
+    </span>
+</div>
+
+<input type="button" value="Save" (click)="saveClass()"
+[disabled]="!studentForm.valid">
+
+
+</form>
+
+
+<table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>E-mail</th>
+      <th>CPF</th>
+      <th>Editar</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let std of students">  
+      <td>{{std.nameA}}</td>
+      <td>{{std.email}}</td>
+      <td>{{std.cpfA}}</td>
+      <td><input type="button" value="Editar" (click)="editStudent(std)"></td>
+      <td><input type="button" value="Remover" (click)="studentDelete(std)"></td>
+    </tr>
+  </tbody>
+  </table>
+
+
+
+
+
+
+
