@@ -1,21 +1,22 @@
 export class Teacher {
-
+    
     private _id: number;
     private _course: string;
     private _subject: string;
     private _name: string;
     private _year: number;
     private _semester: number;
+    private _startDate: Date;
 
-    constructor(id?: number, course?: string, subject?: string, name?:string, 
-        year?: number, semester?: number){
-
-        this._id=id;
-        this._course=course;
-        this.subject=subject;
-        this._name=name;
-        this.year=year;
-        this.semester=semester;
+    constructor(id?: number, course?: string, subject?: string, name?: string, 
+        year?: number, semester?: number, startDate?: Date) {
+        this._id = id;
+        this._course = course;
+        this._subject = subject;
+        this._name = name;
+        this._year = year;
+        this._semester = semester;
+        this._startDate = startDate;
     }
 
     public get id(): number {
@@ -24,14 +25,12 @@ export class Teacher {
     public set id(id: number) {
         this._id = id;
     }
-
     public get course(): string {
         return this._course;
     }
     public set course(value: string) {
         this._course = value;
     }
-
     public get subject(): string {
         return this._subject;
     }
@@ -56,9 +55,10 @@ export class Teacher {
     public set semester(value: number) {
         this._semester = value;
     }
-
-
-
-
-
+    public get startDate(): Date {
+        return this._startDate;
+    }
+    public set startDate(value: Date) {
+        this._startDate = value;
+    }
 }

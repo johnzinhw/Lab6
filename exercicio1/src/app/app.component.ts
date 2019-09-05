@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Teacher } from './teacher';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,19 @@ import { Teacher } from './teacher';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  @ViewChild('teacherForm', {static: true})
+  teacherForm : NgForm;
 
-  newTeacher: Teacher = new Teacher();
-  teachers : Teacher[] =[];
+  newTeacher : Teacher = new Teacher();
+  teachers : Teacher[] = [];
 
-  saveTeacher(){
-    if (!this.newTeacher.id){
-      this.newTeacher.id= (new Date()).getTime();
+  saveTeacher() {
+    if (!this.newTeacher.id) {
+      this.newTeacher.id = (new Date()).getTime();
       this.teachers.push(this.newTeacher);
-
-    }else{
+    
+    } else {
       let oldTeacher = this.teachers.find(t => t.id === this.newTeacher.id);
       oldTeacher.course = this.newTeacher.course;
       oldTeacher.subject = this.newTeacher.subject;
@@ -25,17 +29,18 @@ export class AppComponent {
       oldTeacher.semester = this.newTeacher.semester;
     }
 
-    this.newTeacher=new Teacher();
+    this.newTeacher = new Teacher();
+    this.teacherForm.reset();
   }
 
-  edit (teacher: Teacher){
-    this.newTeacher = new Teacher(teacher.id, teacher.course, teacher.subject,
-       teacher.name, teacher.year, teacher.semester)
-
+  edit(teacher : Teacher) {
+    this.newTeacher = new Teacher(teacher.id, teacher.course, teacher.subject, 
+        teacher.name, teacher.year, teacher.semester);
   }
 
-  delete(teacher: Teacher){
-    let index = this.teachers.findIndex( t => t.id===teacher.id); // achando o teacher X
-    this.teachers.splice(index, 1); //remova nessa posicao 1 elemento
+  delete(teacher : Teacher) {
+    let index = this.teachers.findIndex(t => t.id === teacher.id);
+    this.teachers.splice(index, 1);
   }
+
 }

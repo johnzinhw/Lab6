@@ -1,61 +1,89 @@
-<h1> Professor por disciplina</h1>
+<h1>Professor por Disciplina</h1>
 
-<form>
+<form #teacherForm="ngForm">
   <div>
-    <label for ="course">Curso:</label>
+    <label for="course">Curso:</label>
     <input type="text" id="course" name="course" [(ngModel)]="newTeacher.course"
-    required #course="ngModel">
+      required #course="ngModel">
+    <span *ngIf="course.invalid && course.dirty">
+      Campo obrigatório
+    </span>
   </div>
 
   <div>
-    <label for ="subject">Disciplina:</label>
+    <label for="subject">Disciplina:</label>
     <input type="text" id="subject" name="subject" [(ngModel)]="newTeacher.subject"
-    required #subject="ngModel">
+      required #subject="ngModel">
+    <span *ngIf="subject.invalid && subject.dirty">
+      Campo obrigatório
+    </span>
   </div>
 
   <div>
-    <label for ="teacherName">Professor:</label>
+    <label for="teacherName">Professor:</label>
     <input type="text" id="teacherName" name="teacherName" [(ngModel)]="newTeacher.name"
-    required #teacherName="ngModel">
+      required #teacherName="ngModel">
+    <span *ngIf="teacherName.invalid && teacherName.dirty">
+      Campo obrigatório
+    </span>  
   </div>
 
   <div>
-    <label for ="year">Ano:</label>
+    <label for="year">Ano:</label>
     <input type="number" id="year" name="year" [(ngModel)]="newTeacher.year"
-    required #year="ngModel">
+      required #year="ngModel">
+    <span *ngIf="year.invalid && year.dirty">
+      Campo obrigatório
+    </span>  
   </div>
 
   <div>
-    <label for ="semester">Semestre:</label>
+    <label for="semester">Semestre:</label>
     <input type="number" id="semester" name="semester" [(ngModel)]="newTeacher.semester"
-    required #semestre="ngModel">
+      required #semester="ngModel">
+    <span *ngIf="semester.invalid && semester.dirty">
+      Campo obrigatório
+    </span>  
   </div>
 
-  <input type="button" value="Salvar" (click)="saveTeacher()">
-
+  <div>
+    <label for="startDate">Data de Início:</label>
+    <input type="date" id="startDate" name="startDate" [(ngModel)]="newTeacher.startDate"
+      required #startDate="ngModel">
+    <span *ngIf="startDate.invalid && startDate.dirty">
+      Campo obrigatório
+    </span>
+  </div>
+  <input type="button" value="Salvar" [disabled]="teacherForm.invalid" (click)="saveTeacher()">
 </form>
 
 <table>
   <thead>
-  <tr>
-    <th>Curso </th>
-    <th>Disciplina</th>
-    <th>Professor</th>
-    <th>Ano</th>
-    <th>Semestre</th>
-    <th>Editar</th>
-    <th>Excluir</th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let tcr of teachers">
-    <td>{{tcr.course}}</td>
-    <td>{{tcr.subject}}</td>
-    <td>{{tcr.name}}</td>
-    <td>{{tcr.year}}</td>
-    <td>{{tcr.semester}}</td>
-    <td><input type="button" value="Editar" (click)="edit(tcr)"></td>
-    <td><input type="button" value="Remover" (click)="delete(tcr)"></td>
-  </tr>
-</tbody>
+    <tr>
+      <th>Curso</th>
+      <th>Disciplina</th>
+      <th>Professor</th>
+      <th>Ano</th>
+      <th>Semestre</th>
+      <th>Data Início</th>
+      <th>Editar</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tc of teachers">
+      <td>{{ tc.course | lowercase }}</td>
+      <td>{{ tc.subject | subject }}</td>
+      <td>{{ tc.name }}</td>
+      <td>{{ tc.year | number : '3.3-5' }}</td>
+      <td>{{ tc.semester }}</td>
+      <td>{{ tc.startDate | date : 'fullTime' }}</td>
+      <td>{{ tc.startDate | date : 'shortDate' }}</td>
+      <td>{{ tc.startDate | date : 'long' | uppercase }}</td>
+      <td>{{ tc.startDate | date : 'mediumTime' }}</td>
+      <td>{{ tc.startDate | date : 'dd-MM-yyyy' }}</td>
+      <td><input type="button" value="Edit" (click)="edit(tc)"></td>
+      <td><input type="button" value="Delete" (click)="delete(tc)"></td>
+    </tr>
+  </tbody>
 </table>

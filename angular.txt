@@ -28,3 +28,28 @@ depois da cd na pasta
 cd ProvaUm
 e depois code .
 assim ele vai abrir o vs
+
+PIPE : | <- 
+Ele serve para fazer uma transformacao no dado objetivo
+
+gerar um pipe proprio
+ng generate pipe subject  ( subject é um nome )
+ng start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
