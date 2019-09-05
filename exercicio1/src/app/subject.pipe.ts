@@ -11,7 +11,10 @@ export class SubjectPipe implements PipeTransform {
     } else if (value.startsWith('TEC')) {
       value = value.replace('TEC', 'Técnicas de Programação');
     }
+    
     return value;
   }
+
+  
 
 }

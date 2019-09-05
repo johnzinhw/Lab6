@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SubjectPipe } from './subject.pipe';
+import { CpfPipe } from './cpf.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubjectPipe
+    SubjectPipe,
+    CpfPipe
   ],
   imports: [
     BrowserModule,
