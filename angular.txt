@@ -1,6 +1,6 @@
 Todo projeto, tenho que executar o comando
-ng serve -o
-npm install
+ng serve -o ;iniciar o server ...
+npm install ;instalar os pacotes
 
 Assim ele vai executar e abrir a web com project
 

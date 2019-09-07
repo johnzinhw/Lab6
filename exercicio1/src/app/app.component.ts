@@ -27,6 +27,8 @@ export class AppComponent {
       oldTeacher.name = this.newTeacher.name;
       oldTeacher.year = this.newTeacher.year;
       oldTeacher.semester = this.newTeacher.semester;
+      oldTeacher.startDate = this.newTeacher.startDate;
+      oldTeacher.cpf = this.newTeacher.cpf;
     }
 
     this.newTeacher = new Teacher();
@@ -35,7 +37,7 @@ export class AppComponent {
 
   edit(teacher : Teacher) {
     this.newTeacher = new Teacher(teacher.id, teacher.course, teacher.subject, 
-        teacher.name, teacher.year, teacher.semester);
+        teacher.name, teacher.year, teacher.semester, teacher.startDate, teacher.cpf);
   }
 
   delete(teacher : Teacher) {

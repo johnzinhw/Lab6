@@ -14,8 +14,10 @@ export class CpfPipe implements PipeTransform {
     console.log(vv.length);
     if(vv.length===11){
       vv = value.toString();
-      vv = vv.substring(0,3) + "." + vv.substring(3,6) +
-       "." + vv.substring(6,9) + "-" + vv.substring(9,11);
+      vv = vv.substring(0,3) + 
+      "." + vv.substring(3,6) +
+      "." + vv.substring(6,9) + 
+      "-" + vv.substring(9,11);
        console.log(vv);
     }
 

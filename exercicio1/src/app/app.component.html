@@ -91,10 +91,12 @@
       <td>{{ tc.year | number : '3.3-5' }}</td>
       <td>{{ tc.semester }}</td>
       <td>{{ tc.startDate | date : 'fullTime' }}</td>
+      <!-- 
       <td>{{ tc.startDate | date : 'shortDate' }}</td>
       <td>{{ tc.startDate | date : 'long' | uppercase }}</td>
       <td>{{ tc.startDate | date : 'mediumTime' }}</td>
       <td>{{ tc.startDate | date : 'dd-MM-yyyy' }}</td>
+       -->
       <td><input type="button" value="Edit" (click)="edit(tc)"></td>
       <td><input type="button" value="Delete" (click)="delete(tc)"></td>
     </tr>
