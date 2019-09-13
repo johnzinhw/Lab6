@@ -1,20 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1>Cadastro de CEP</h1>
 
+<form #cepForm="ngForm">
+    <div>
+        <label for="cep">CEP:</label>
+        <input type="number" id="cep" name="cep" [(ngModel)]="newStates.cep" required #cep="ngModel">
+        <span *ngIf="cep.invalid && cep.dirty">
+      Campo obrigatório
+    </span>
+    </div>
+
+    <div>
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" [(ngModel)]="newStates.cidade" required #cidade="ngModel">
+        <span *ngIf="cidade.invalid && cidade.dirty">
+        Campo obrigatório
+      </span>
+    </div>
+
+    <div>
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" name="estado" [(ngModel)]="newStates.estado" required #estado="ngModel">
+        <span *ngIf="estado.invalid && estado.dirty">
+          Campo obrigatório
+        </span>
+    </div>
+    <input type="button" value="Salvar" [disabled]="cepForm.invalid" (click)="saveCeps()">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>CEP</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Editar</th>
+            <th>Remover</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sts of states">
+            <td>{{ sts.cep | cep }}</td>
+            <td>{{ sts.cidade }}</td>
+            <td>{{ sts.estado | state: sts.estado }}</td>
+            <td><input type="button" value="Edit" (click)="edit(sts)"></td>
+            <td><input type="button" value="Delete" (click)="delete(sts)"></td>
+        </tr>
+        <tr id="emptyLine">
+            <td colspan="5">Nenhum CEP cadastrado ainda!</td>
+        </tr>
+    </tbody>
+</table>

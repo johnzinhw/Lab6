@@ -23,5 +23,14 @@ export class PhonePipe implements PipeTransform {
     return tel;
     
   }
+  
+  // let cellPhone = value.toString();
+  // let result='';
+
+  // if (addDDD){
+  //   result ='(35)';
+  // }
+  // result += cellPhone.substring(0,5)+'-'+ cellPhone.substring(5);
+  // return result
   }
 

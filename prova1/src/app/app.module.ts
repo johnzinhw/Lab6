@@ -1,14 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { CodigopostalPipe } from './codigopostal.pipe';
+import { StatePipe } from './state.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CodigopostalPipe,
+    StatePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
