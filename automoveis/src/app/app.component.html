@@ -1,0 +1,73 @@
+<h1>Cadastro de Automóveis</h1>
+
+<form #autForm="ngForm">
+    <div>
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" [(ngModel)]="newVeiculos.tipo" required #tipo="ngModel">
+        <span *ngIf="tipo.invalid && tipo.dirty">
+      Campo obrigatório!!
+    </span>
+    </div>
+
+    <div>
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" [(ngModel)]="newVeiculos.marca" required #marca="ngModel">
+        <span *ngIf="marca.invalid && marca.dirty">
+        Campo obrigatório!!
+      </span>
+    </div>
+
+    <div>
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" [(ngModel)]="newVeiculos.modelo" required #modelo="ngModel">
+        <span *ngIf="modelo.invalid && modelo.dirty">
+          Campo obrigatório!!
+        </span>
+    </div>
+
+    <div>
+        <label for="cor">Cor:</label>
+        <input type="text" id="cor" name="cor" [(ngModel)]="newVeiculos.cor" required #cor="ngModel">
+        <span *ngIf="cor.invalid && cor.dirty">
+        Campo obrigatório!!
+      </span>
+    </div>
+
+    <div>
+        <label for="ano">Ano de Fabricação:</label>
+        <input type="number" id="ano" name="ano" [(ngModel)]="newVeiculos.ano" required #ano="ngModel">
+        <span *ngIf="ano.invalid && ano.dirty">
+      Campo obrigatório!!
+    </span>
+    </div>
+
+    <input type="button" value="Salvar" [disabled]="autForm.invalid" (click)="saveItem()">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Cor</th>
+            <th>Ano de Fabricação</th>
+            <th>Editar</th>
+            <th>Remover</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vei of veiculos">
+            <td>{{ vei.tipo }}</td>
+            <td>{{ vei.marca }}</td>
+            <td>{{ vei.modelo }}</td>
+            <td>{{ vei.cor }}</td>
+            <td>{{ vei.ano }}</td>
+            <td><input type="button" value="Edit" (click)="edit(vei)"></td>
+            <td><input type="button" value="Delete" (click)="delete(vei)"></td>
+        </tr>
+        <tr *ngIf="veiculos.length===0">
+            <td colspan="5">Nenhum automóvel cadastrado!</td>
+        </tr>
+    </tbody>
+</table>
