@@ -58,7 +58,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let vei of veiculos">
-            <td>{{ vei.tipo }}</td>
+            <td [ngStyle]="{'background-color':'green'}">{{ vei.tipo }}</td>
+
             <td>{{ vei.marca }}</td>
             <td>{{ vei.modelo }}</td>
             <td>{{ vei.cor }}</td>
