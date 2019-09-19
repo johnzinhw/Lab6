@@ -45,7 +45,7 @@
             <td><input type="button" value="Edit" (click)="edit(sts)"></td>
             <td><input type="button" value="Delete" (click)="delete(sts)"></td>
         </tr>
-        <tr id="emptyLine">
+        <tr *ngIf="states.length===0">
             <td colspan="5">Nenhum CEP cadastrado ainda!</td>
         </tr>
     </tbody>
