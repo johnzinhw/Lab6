@@ -57,9 +57,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let vei of veiculos">
-            <td [ngStyle]="{'background-color':'green'}">{{ vei.tipo }}</td>
-
+        <tr *ngFor="let vei of veiculos" [ngClass]="{'moto':vei.tipo==='moto',
+          'carro':vei.tipo==='carro'}">
+            <td>{{ vei.tipo }}</td>
             <td>{{ vei.marca }}</td>
             <td>{{ vei.modelo }}</td>
             <td>{{ vei.cor }}</td>
