@@ -1,0 +1,11 @@
+Service injetado em varios componentes
+
+componente seria uma pasta com todos eles( html,css,ts e etc)
+
+ng g component subject (subject seria o nome )
+
+ng g component course ( cria um curso)
+
+
+
+

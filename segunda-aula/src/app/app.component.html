@@ -1,39 +1,10 @@
-<h1>Cadastro de Carros</h1>
+<h1> Cadastro Escolar</h1>
 
-<form>
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" [(ngModel)]="newCourse.name">
-    </div>
+<nav>
+    <ul>
+        <li><a routerLink="course">Curso</a></li>
+        <li><a routerLink="subject">Disciplina</a></li>
+    </ul>
+</nav>
 
-    <div>
-        <label for="workload">Workload:</label>
-        <input type="number" id="workload" name="workload" [(ngModel)]="newCourse.workload">
-    </div>
-
-    <input type="button" value="Salvar" (click)="save()">
-</form>
-
-<h2>Carros cadastrados</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Ano</th>
-            <th>Editar</th>
-            <th>Remover</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngIf="courses.length===0">
-            <td colspan="5">Nenhum carro cadastrado ainda!!!</td>
-        </tr>
-        <tr *ngFor="let course of courses">
-            <td>{{course.name}}</td>
-            <td>{{course.workload}}</td>
-            <td> <input type="button" value="Editar" (click)="edit(course)"></td>
-            <td> <input type="button" value="Remover" (click)="delete(course)"></td>
-        </tr>
-    </tbody>
-</table>
+<router-outlet></router-outlet>
