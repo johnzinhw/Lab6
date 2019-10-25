@@ -17,11 +17,12 @@ export class AppComponent implements OnInit {
   constructor(
     private eventService: CrudService
   ) {
-    this.newTit = new Posts();
-    this.getAll();
+    
   }
 
   ngOnInit() {
+    this.newTit = new Posts();
+    this.getAll();
   }
 
   getAll() {
