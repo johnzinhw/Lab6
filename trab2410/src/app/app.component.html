@@ -1,0 +1,35 @@
+<h1>CRUD DO TRABALHO</h1>
+
+<form>
+  <div>
+    <label>Titulo</label>
+    <input type="text" id="title" name="title" placeholder="Titulo do evento" [(ngModel)]="newTit.title">
+  </div>
+  <div>
+    <label>Autor</label>
+    <input type="text" id="autor" name="autor" placeholder="Autor " [(ngModel)]="newTit.autor">
+  </div>
+
+  <input type="button" value="Save" (click)="save()">
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Evento</th>
+      <th>Autor</th>
+      <th>Editar</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of Events">
+      <td>{{ data.id }}</td>
+      <td>{{ data.title }}</td>
+      <td>{{ data.author }}</td>
+      <td><input type="button" value="Editar" (click)="edit(data)"></td>
+      <td><input type="button" value="Remover" (click)="delet(data)"></td>
+    </tr>
+  </tbody>
+</table>
