@@ -13,6 +13,13 @@
 </form>
 
 <h2>Cursos cadastrados</h2>
+
+<label for="filter">Filtro:</label>
+<input type="text" id="filter" name="filter" [(ngModel)]="searchCourse">
+
+<input type="button" value="Buscar" (click)="search()">
+
+
 <table>
     <thead>
         <tr>

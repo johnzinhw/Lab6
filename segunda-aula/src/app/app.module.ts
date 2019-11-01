@@ -9,6 +9,8 @@ import { SubjectComponent } from './subject/subject.component';
 import { CourseComponent } from './course/course.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
+import { Ng2SearchPipeModule} from 'ng2-search-filter';
+
 //lista de rotas
 const routes: Routes =[
   {path: 'course', component: CourseComponent},
@@ -28,9 +30,11 @@ const routes: Routes =[
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
     // importa a rota que foi criada
     RouterModule.forRoot(
       routes
+
     )
 
   ],
