@@ -1,0 +1,28 @@
+<h1>Temperatura</h1>
+
+
+<input type="radio" name="gender" value="sp" (click)="getSp()">
+<label>São Paulo</label>
+
+<input type="radio" name="gender" value="rj" (click)="getRj()">
+<label>Rio de Janeiro</label>
+
+<table>
+    <thead>
+        <th>Dia</th>
+        <th>Min.</th>
+        <th>Máxx.</th>
+        <th>Estado</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let object of objects">
+            <td>{{object.applicable_date}}</td>
+            <td>{{object.min_temp}}</td>
+            <td>{{object.max_temp}}</td>
+            <td *ngIf="this.object.weather_state_abbr=='s'"><img src="../assets/images/s.svg" alt=""></td>
+            <td *ngIf="this.object.weather_state_abbr=='lr'"><img src="../assets/images/lr.svg" alt=""></td>
+            <td *ngIf="this.object.weather_state_abbr=='hr'"><img src="../assets/images/hr.svg" alt=""></td>
+            <td *ngIf="this.object.weather_state_abbr=='hc'"><img src="../assets/images/hc.svg" alt=""></td>
+        </tr>
+    </tbody>
+</table>
